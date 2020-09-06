@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/editormd.css" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" >
+<style type="text/css">	html,body,form{height: 95%;}</style>
+</head>
+<body style="background: #f6f6f6;">
+<form action="/saveMarkdown" method="post">
+	
+	
+           <div style="margin-left: 100px;">
+            <input type="text" class="form-control" name = "headline" id="firstName" placeholder="标题" value="" required style="width: 500px;margin-top: 10px">
+           
+            <input type="text" class="form-control" name = "introduce" id="firstName" placeholder="介绍" value="" required style="width: 500px;margin-top: 10px">
+          </div>
+           
+ <!-- <div class="form-group">
+	    <label for="exampleInputEmail1">标题</label>
+	    <input type="text" name="tatilee" class="form-control" id="title" style="width: 70%" placeholder="标题..">
+	 		    <textarea class="form-control" rows="3" style="width: 70%"></textarea>
+	  </div> -->
+<div id="test-editor"  style="margin-top: 10px" >
+
+    <textarea style="display:none;" name ="maintext">### 关于 Editor.md
+    
+
+**Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。
+    </textarea>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-md-4"></div>
+  <div class="col-xs-6 col-md-4"> <button class="btn btn-primary btn-lg btn-block" type="submit" >Continue to checkout</button>
+  </div>
+  <div class="col-xs-6 col-md-4"></div>
+</div>
+
+</form>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/editormd.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var editor = editormd("test-editor", {
+             width  : "90%",
+             height : "90%",
+            path   : "/js/lib/",
+            delay:0,
+            imageUpload          : true,
+            imageFormats         : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL  	 : "/uploadimage"
+        });
+    });
+</script>
+
+</body>
+</html>
